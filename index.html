@@ -1567,7 +1567,7 @@
               તમારા સેક્શનના ઓપરેટરનું નામ ઉમેરો:
             </p>
             <div style="display:flex; gap:0.4rem; margin-bottom:1rem; max-width: 500px; flex-wrap:wrap; align-items:center;">
-              <input type="text" id="newOperatorNameInputManager" placeholder="ઓપરેટર નામ (દા.ત. SANJAY)" style="flex:1; min-width:180px; text-transform: uppercase;" />
+              <input type="text" id="newOperatorNameInputManager" placeholder="ઓપરેટર નામ (દા.ત. SANJAY)" style="flex:1; min-width:180px; text-transform: uppercase;" onkeypress="handleEnterKey(event, addOperatorMasterManager)" />
               <button class="btn" style="background:var(--success);" onclick="addOperatorMasterManager()">+ ઓપરેટર ઉમેરો</button>
             </div>
             <h3 style="font-size: 0.85rem; margin-bottom: 0.65rem; color: var(--text-secondary);">સેક્શન ઓપરેટરો:</h3>
@@ -2336,7 +2336,7 @@
                 <div class="form-grid" style="margin-bottom:0.85rem;">
                   <div class="form-group">
                     <label>નામ <span class="req">*</span></label>
-                    <input type="text" id="newMgrNameInput" placeholder="દા.ત. મહેશભાઈ" style="font-size:0.85rem;" />
+                    <input type="text" id="newMgrNameInput" placeholder="દા.ત. મહેશભાઈ" style="font-size:0.85rem;" onkeypress="handleEnterKey(event, addManagerMaster)" />
                   </div>
                   <div class="form-group">
                     <label>સેક્શન</label>
@@ -2350,7 +2350,7 @@
                   </div>
                   <div class="form-group">
                     <label>🔑 પાસવર્ડ</label>
-                    <input type="text" id="newMgrPassInput" value="123" style="font-size:0.85rem;" />
+                    <input type="text" id="newMgrPassInput" value="123" style="font-size:0.85rem;" onkeypress="handleEnterKey(event, addManagerMaster)" />
                   </div>
                 </div>
                 <div style="margin-bottom:0.85rem;">
@@ -2366,7 +2366,7 @@
                 <div class="form-grid" style="margin-bottom:0.85rem;">
                   <div class="form-group">
                     <label>નામ <span class="req">*</span></label>
-                    <input type="text" id="newChkNameInput" placeholder="દા.ત. રમેશભાઈ" style="font-size:0.85rem;" />
+                    <input type="text" id="newChkNameInput" placeholder="દા.ત. રમેશભાઈ" style="font-size:0.85rem;" onkeypress="handleEnterKey(event, addCheckerMaster)" />
                   </div>
                   <div class="form-group">
                     <label>સેક્શન</label>
@@ -2380,7 +2380,7 @@
                   </div>
                   <div class="form-group">
                     <label>🔑 પાસવર્ડ</label>
-                    <input type="text" id="newChkPassInput" value="123" style="font-size:0.85rem;" />
+                    <input type="text" id="newChkPassInput" value="123" style="font-size:0.85rem;" onkeypress="handleEnterKey(event, addCheckerMaster)" />
                   </div>
                 </div>
                 <div style="margin-bottom:0.85rem;">
@@ -2456,15 +2456,15 @@
             <div class="form-grid" style="margin-bottom:1.1rem;">
               <div class="form-group">
                 <label>મશીન નંબર <span class="req">*</span></label>
-                <input type="text" id="newMachineNoInput" placeholder="દા.ત. 4P-016" />
+                <input type="text" id="newMachineNoInput" placeholder="દા.ત. 4P-016" onkeypress="handleEnterKey(event, addMachineMaster)" />
               </div>
               <div class="form-group">
                 <label>ઉત્પાદક કંપની (Company Name)</label>
-                <input type="text" id="newCompanyInput" placeholder="દા.ત. Lexus / STPL / Sahjanand" />
+                <select id="newCompanySelect" style="font-size:0.85rem;"></select>
               </div>
               <div class="form-group">
                 <label>કંપની સીરીયલ ID (Serial No.)</label>
-                <input type="text" id="newSerialInput" placeholder="દા.ત. LX-9940" />
+                <input type="text" id="newSerialInput" placeholder="દા.ત. LX-9940" onkeypress="handleEnterKey(event, addMachineMaster)" />
               </div>
             </div>
             <button class="btn" style="background:#f97316;" onclick="addMachineMaster()">+ મશીન ઉમેરો & સેવ કરો</button>
@@ -2499,6 +2499,25 @@
             </div>
           </div>
         </div>
+        <!-- 5d. 🏢 COMPANIES MASTER -->
+        <div class="glass-card collapsible" style="border: 1px solid var(--accent); background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(2, 132, 199, 0.08) 100%);">
+          <div class="card-header" style="border-bottom-color: rgba(2,132,199,0.2); display:flex; align-items:center; gap:0.5rem;">
+            <h2 style="color: var(--accent); flex:1; margin:0;">🏢 કંપની માસ્ટર (Manage Companies)</h2>
+            <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
+          </div>
+          <div class="collapsible-body">
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; margin-top:1rem;">
+              ઉત્પાદક કંપનીનું નામ ઉમેરો અથવા કાઢી નાખો:
+            </p>
+            <div style="display:flex; gap:0.4rem; margin-bottom:1rem; max-width: 500px; flex-wrap:wrap; align-items:center;">
+              <input type="text" id="newCompanyNameInput" placeholder="દા.ત. STPL" style="flex:1; min-width:180px; text-transform: uppercase;" onkeypress="handleEnterKey(event, addCompanyMaster)" />
+              <button class="btn" style="background:var(--accent);" onclick="addCompanyMaster()">+ કંપની ઉમેરો</button>
+            </div>
+            <h3 style="font-size: 0.85rem; margin-bottom: 0.65rem; color: var(--text-secondary);">કુલ કંપનીઓ:</h3>
+            <div id="companiesListBadges" style="display:flex; gap:0.5rem; flex-wrap:wrap;"></div>
+          </div>
+        </div>
+
         <!-- 5b. 🏢 SECTIONS MASTER -->
         <div class="glass-card collapsible" style="border: 1px solid var(--accent); background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(2, 132, 199, 0.08) 100%);">
           <div class="card-header" style="border-bottom-color: rgba(2,132,199,0.2); display:flex; align-items:center; gap:0.5rem;">
@@ -2510,7 +2529,7 @@
               નવું સેક્શન ઉમેરો અથવા હાલના સેક્શન કાઢી નાખો:
             </p>
             <div style="display:flex; gap:0.4rem; margin-bottom:1rem; max-width: 500px; flex-wrap:wrap;">
-              <input type="text" id="newSectionInput" placeholder="દા.ત. Section 6" style="flex:1; min-width:180px;" />
+              <input type="text" id="newSectionInput" placeholder="દા.ત. Section 6" style="flex:1; min-width:180px;" onkeypress="handleEnterKey(event, addSectionMaster)" />
               <button class="btn" onclick="addSectionMaster()">+ સેક્શન ઉમેરો</button>
             </div>
             <h3 style="font-size: 0.85rem; margin-bottom: 0.65rem; color: var(--text-secondary);">કુલ સેક્શન:</h3>
@@ -2529,7 +2548,7 @@
               ઓપરેટરનું નામ અને સેક્શન ફાળવી ઉમેરો:
             </p>
             <div style="display:flex; gap:0.4rem; margin-bottom:1rem; max-width: 500px; flex-wrap:wrap; align-items:center;">
-              <input type="text" id="newOperatorNameInput" placeholder="ઓપરેટર નામ (દા.ત. SANJAY)" style="flex:1; min-width:180px; text-transform: uppercase;" />
+              <input type="text" id="newOperatorNameInput" placeholder="ઓપરેટર નામ (દા.ત. SANJAY)" style="flex:1; min-width:180px; text-transform: uppercase;" onkeypress="handleEnterKey(event, addOperatorMasterAdmin)" />
               <select id="newOperatorSectionSelect" style="padding:0.4rem; min-height:36px;"></select>
               <button class="btn" style="background:var(--success);" onclick="addOperatorMasterAdmin()">+ ઓપરેટર ઉમેરો</button>
             </div>
@@ -2636,6 +2655,8 @@
       "કોલેટ ચેક"
     ];
 
+    const defaultCompanies = ["Lexus", "STPL", "MacSwin", "Arpit", "Perfect", "Sparrow", "Dharmaj"];
+    
     // Master Machines with Manufacturer Company & Serial Number Metadata
     let defaultMachines = [
       { machineNo: "4P-001", companyName: "Lexus", serialNo: "LX-101" },
@@ -2686,7 +2707,8 @@
       performance: JSON.parse(localStorage.getItem('4p_performance')) || [],
       trash: JSON.parse(localStorage.getItem('4p_trash')) || [],
       shiftTiming: JSON.parse(localStorage.getItem('4p_shift_timing')) || { dayStart:'08:00', dayEnd:'20:00', nightStart:'20:00', nightEnd:'08:00' },
-      sections: JSON.parse(localStorage.getItem('4p_sections')) || defaultSections
+      sections: JSON.parse(localStorage.getItem('4p_sections')) || defaultSections,
+      companies: JSON.parse(localStorage.getItem('4p_companies')) || defaultCompanies
     };
 
     let db = null;
@@ -2863,6 +2885,15 @@
           renderOperatorBadgesAdmin();
           renderOperatorBadgesManager();
         }
+      });
+
+      // 11. Companies
+      db.ref('companies').on('value', (snap) => {
+        const val = snap.val();
+        appData.companies = val ? Object.values(val) : defaultCompanies;
+        localStorage.setItem('4p_companies', JSON.stringify(appData.companies));
+        populateCompanyDropdowns();
+        renderCompanyBadges();
       });
 
       // 9. Operator Names
@@ -5264,7 +5295,62 @@ function startVoiceTyping(targetFieldId) {
       downloadCSV('FilteredReports', ['Date/Time','Type','Machine','User','Details','Status'], rows);
     }
 
+    // ===== ENTER KEY & UTILITIES =====
+    function handleEnterKey(e, actionFn) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        actionFn();
+      }
+    }
+
+    // ===== DYNAMIC COMPANIES MASTER =====
+    function renderCompanyBadges() {
+      const container = document.getElementById('companiesListBadges');
+      if (!container) return;
+      
+      const comps = appData.companies || defaultCompanies;
+      container.innerHTML = comps.map(c => `
+        <span class="status-badge pending" style="font-size:0.85rem; padding:0.4rem 0.8rem; cursor:pointer;" onclick="removeCompanyMaster('${c}')">
+          ${c} ✖
+        </span>
+      `).join('');
+    }
+
+    function addCompanyMaster() {
+      const val = document.getElementById('newCompanyNameInput').value.trim().toUpperCase();
+      if (!val) return;
+      
+      if (!appData.companies) appData.companies = [...defaultCompanies];
+      if (!appData.companies.includes(val)) {
+        appData.companies.push(val);
+        if (isFirebaseInitialized && db) {
+          db.ref('companies').set(appData.companies);
+        } else {
+          saveData();
+          populateCompanyDropdowns();
+          renderCompanyBadges();
+        }
+        document.getElementById('newCompanyNameInput').value = '';
+        alert(`✅ નવી કંપની '${val}' ઉમેરાઈ!`);
+      }
+    }
+
+    function removeCompanyMaster(c) {
+      if (confirm(`શું તમે કંપની '${c}' ખરેખર કાઢી નાખવા માગો છો?`)) {
+        if (!appData.companies) appData.companies = [...defaultCompanies];
+        appData.companies = appData.companies.filter(comp => comp !== c);
+        if (isFirebaseInitialized && db) {
+          db.ref('companies').set(appData.companies);
+        } else {
+          saveData();
+          populateCompanyDropdowns();
+          renderCompanyBadges();
+        }
+      }
+    }
+
     // ===== DYNAMIC SECTIONS & DROPDOWNS =====
+
     function populateSectionDropdowns() {
       const secs = appData.sections || defaultSections;
       const optionsHTML = secs.map(s => `<option value="${s}">${s.replace('Section', 'સેક્શન')}</option>`).join('');
@@ -5564,7 +5650,7 @@ function startVoiceTyping(targetFieldId) {
       const allMachines = getMachineListNames();
 
       container.innerHTML = sections.map(sec => {
-        const assign = currentAssignments[sec];
+        const assign = currentAssignments[sec] || { manager: '', checker: '', machines: [] };
         const sectionLabel = sec.replace('Section', 'સેક્શન');
 
         const mgrOptions = `<option value="">-- કોઈ મેનેજર નહીં --</option>` + managersList.map(m => {
@@ -5655,7 +5741,7 @@ function startVoiceTyping(targetFieldId) {
     }
 
     function applySectionAssignmentDirectly(sec) {
-      const assign = currentAssignments[sec];
+      const assign = currentAssignments[sec] || { manager: '', checker: '', machines: [] };
 
       // 1. Clear previous users assigned to this section
       appData.users.forEach(u => {
@@ -5745,7 +5831,7 @@ function startVoiceTyping(targetFieldId) {
 
         // Apply template assignments
         Object.keys(currentAssignments).forEach(sec => {
-          const assign = currentAssignments[sec];
+          const assign = currentAssignments[sec] || { manager: '', checker: '', machines: [] };
           if (assign.manager) {
             const mgr = appData.users.find(u => u.role === 'manager' && u.name === assign.manager);
             if (mgr) {
