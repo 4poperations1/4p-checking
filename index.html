@@ -2624,8 +2624,8 @@
     // Firebase & Sync State
     let firebaseConfig = JSON.parse(localStorage.getItem('4p_firebase_config')) || {
       apiKey: 'AIzaSyDemoNirbhayGems4PKey',
-      projectId: 'nirbhay-gems-4p',
-      databaseURL: 'https://nirbhay-gems-4p-default-rtdb.firebaseio.com',
+      projectId: 'p-checking-default-rtdb',
+      databaseURL: 'https://p-checking-default-rtdb.firebaseio.com/',
       connected: true
     };
 
@@ -2715,8 +2715,8 @@
     let isFirebaseInitialized = false;
 
     function initFirebase() {
-      // If default demo config is present, replace it with the user's default Database URL
-      if (firebaseConfig.databaseURL === 'https://nirbhay-gems-4p-default-rtdb.firebaseio.com') {
+      // If default demo config or old demo config is present, force update it to the production URL
+      if (firebaseConfig.databaseURL && firebaseConfig.databaseURL.includes('nirbhay-gems-4p')) {
         firebaseConfig.databaseURL = 'https://p-checking-default-rtdb.firebaseio.com/';
         firebaseConfig.projectId = 'p-checking-default-rtdb';
         localStorage.setItem('4p_firebase_config', JSON.stringify(firebaseConfig));
