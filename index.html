@@ -760,28 +760,28 @@
       background: var(--bg-primary);
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 0.75rem;
+      padding: 0.45rem;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.3rem;
     }
 
-    .check-item-title { font-size: 0.85rem; font-weight: 600; }
+    .check-item-title { font-size: 0.78rem; font-weight: 600; }
 
-    .toggle-group { display: flex; gap: 0.35rem; }
+    .toggle-group { display: flex; gap: 0.25rem; }
 
     .toggle-btn {
       flex: 1;
-      padding: 0.5rem;
+      padding: 0.35rem 0.2rem;
       border: 1px solid var(--border-color);
       background: transparent;
       color: var(--text-secondary);
-      border-radius: 6px;
-      font-size: 0.85rem;
+      border-radius: 5px;
+      font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
       text-align: center;
-      min-height: 44px;
+      min-height: 34px;
     }
 
     .toggle-btn.active.ok {
@@ -1045,7 +1045,8 @@
         grid-template-columns: 1fr;
       }
       .checks-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
       }
     }
 
@@ -2139,9 +2140,6 @@
                 <option value="ALL">તમામ સેક્શન</option>
                 <option value="Section 1">સેક્શન 1</option>
                 <option value="Section 2">સેક્શન 2</option>
-                <option value="Section 3">સેક્શન 3</option>
-                <option value="Section 4">સેક્શન 4</option>
-                <option value="Section 5">સેક્શન 5</option>
               </select>
             </div>
 
@@ -2343,9 +2341,6 @@
                     <select id="newMgrSectionSelect" style="font-size:0.85rem;">
                       <option value="Section 1">સેક્શન 1</option>
                       <option value="Section 2">સેક્શન 2</option>
-                      <option value="Section 3">સેક્શન 3</option>
-                      <option value="Section 4">સેક્શન 4</option>
-                      <option value="Section 5">સેક્શન 5</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -2373,9 +2368,6 @@
                     <select id="newChkSectionSelect" style="font-size:0.85rem;">
                       <option value="Section 1">સેક્શન 1</option>
                       <option value="Section 2">સેક્શન 2</option>
-                      <option value="Section 3">સેક્શન 3</option>
-                      <option value="Section 4">સેક્શન 4</option>
-                      <option value="Section 5">સેક્શન 5</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -2655,33 +2647,36 @@
       "કોલેટ ચેક"
     ];
 
-    const defaultCompanies = ["Lexus", "STPL", "MacSwin", "Arpit", "Perfect", "Sparrow", "Dharmaj"];
+    const defaultCompanies = ["Arpit", "STPL"];
     
     // Master Machines with Manufacturer Company & Serial Number Metadata
     let defaultMachines = [
-      { machineNo: "4P-001", companyName: "Lexus", serialNo: "LX-101" },
-      { machineNo: "4P-002", companyName: "Lexus", serialNo: "LX-102" },
-      { machineNo: "4P-003", companyName: "STPL", serialNo: "ST-201" },
-      { machineNo: "4P-004", companyName: "STPL", serialNo: "ST-202" },
-      { machineNo: "4P-005", companyName: "Sahjanand", serialNo: "SJ-301" },
-      { machineNo: "4P-006", companyName: "Sahjanand", serialNo: "SJ-302" },
-      { machineNo: "4P-007", companyName: "Lexus", serialNo: "LX-107" },
-      { machineNo: "4P-008", companyName: "STPL", serialNo: "ST-208" },
-      { machineNo: "4P-009", companyName: "Sahjanand", serialNo: "SJ-309" }
+      { machineNo: "4P-1", companyName: "Arpit", serialNo: "A01" },
+      { machineNo: "4P-2", companyName: "Arpit", serialNo: "A02" },
+      { machineNo: "4P-3", companyName: "Arpit", serialNo: "A03" },
+      { machineNo: "4P-4", companyName: "Arpit", serialNo: "A04" },
+      { machineNo: "4P-5", companyName: "Arpit", serialNo: "A05" },
+      { machineNo: "STPL1", companyName: "STPL", serialNo: "STPL1" },
+      { machineNo: "STPL2", companyName: "STPL", serialNo: "STPL2" },
+      { machineNo: "STPL3", companyName: "STPL", serialNo: "STPL3" },
+      { machineNo: "STPL4", companyName: "STPL", serialNo: "STPL4" },
+      { machineNo: "STPL5", companyName: "STPL", serialNo: "STPL5" }
     ];
 
     let defaultUsers = [
-      { name: "રાઉન્ડ મેનેજર 1", role: "manager", pass: "123", section: "Section 1", assignedMachines: ["4P-001", "4P-002", "4P-003"] },
-      { name: "રાઉન્ડ મેનેજર 2", role: "manager", pass: "123", section: "Section 2", assignedMachines: ["4P-004", "4P-005", "4P-006"] },
-      { name: "ચેકર 1", role: "checker", pass: "123", section: "Section 1", assignedMachines: ["4P-001", "4P-002", "4P-003"] },
-      { name: "ચેકર 2", role: "checker", pass: "123", section: "Section 2", assignedMachines: ["4P-004", "4P-005", "4P-006"] }
+      { name: "RM1", role: "manager", pass: "123", section: "Section 1", assignedMachines: ["4P-1", "4P-2", "4P-3", "4P-4", "4P-5"] },
+      { name: "RM2", role: "manager", pass: "123", section: "Section 2", assignedMachines: ["STPL1", "STPL2", "STPL3", "STPL4", "STPL5"] },
+      { name: "CH1", role: "checker", pass: "123", section: "Section 1", assignedMachines: ["4P-1", "4P-2", "4P-3", "4P-4", "4P-5"] },
+      { name: "CH2", role: "checker", pass: "123", section: "Section 2", assignedMachines: ["STPL1", "STPL2", "STPL3", "STPL4", "STPL5"] }
     ];
 
-    const defaultSections = ["Section 1", "Section 2", "Section 3", "Section 4", "Section 5"];
+    const defaultSections = ["Section 1", "Section 2"];
     let defaultOpNames = [
       { name: "SANJAY", section: "Section 1" },
       { name: "MAHESHBHAI", section: "Section 2" },
-      { name: "RAJESH", section: "Section 3" }
+      { name: "RAJESH", section: "Section 1" },
+      { name: "VIJAY", section: "Section 2" },
+      { name: "JAYESH", section: "Section 1" }
     ];
     let defaultCuttingNos = ["CP-101", "CP-102", "CP-204", "CP-305"];
 
@@ -2691,7 +2686,7 @@
     
     // Normalize stored machine objects
     let masterMachinesList = rawMachines.map(m => {
-      if (typeof m === 'string') return { machineNo: m, companyName: 'Lexus', serialNo: 'LX-' + m.replace('4P-', '') };
+      if (typeof m === 'string') return { machineNo: m, companyName: 'Arpit', serialNo: 'A-' + m.replace('4P-', '') };
       return m;
     });
 
@@ -2780,13 +2775,71 @@
       db.ref('users').on('value', (snap) => {
         const val = snap.val();
         if (val) {
+          let needsUpdate = false;
+          let keysToRemove = [];
+          let usersToSet = [];
+          
+          const migrationMap = {
+            "રાઉન્ડ મેનેજર 1": "RM1",
+            "રાઉન્ડ મેનેજર 2": "RM2",
+            "ચેકર 1": "CH1",
+            "ચેકર 2": "CH2"
+          };
+
+          for (const key in val) {
+            let u = val[key];
+            let nameChanged = false;
+            let sectionChanged = false;
+            let uName = u.name;
+
+            if (migrationMap[uName]) {
+              keysToRemove.push(uName);
+              uName = migrationMap[uName];
+              nameChanged = true;
+            }
+
+            let uSection = u.section || '';
+            let uAssMachines = u.assignedMachines || [];
+            if (uSection && uSection !== 'Section 1' && uSection !== 'Section 2') {
+              uSection = '';
+              uAssMachines = [];
+              sectionChanged = true;
+            }
+
+            if (nameChanged || sectionChanged) {
+              const updatedUser = {
+                ...u,
+                name: uName,
+                section: uSection,
+                assignedMachines: uAssMachines
+              };
+              usersToSet.push(updatedUser);
+              needsUpdate = true;
+            }
+          }
+
+          if (needsUpdate && isFirebaseInitialized && db) {
+            keysToRemove.forEach(k => {
+              db.ref('users/' + k.replace(/[\.\#\$\/\[\]]/g, '_')).remove();
+            });
+            usersToSet.forEach(u => {
+              db.ref('users/' + u.name.replace(/[\.\#\$\/\[\]]/g, '_')).set(u);
+            });
+            return;
+          }
+
           appData.users = Object.values(val);
           localStorage.setItem('4p_users', JSON.stringify(appData.users));
           
           // Re-resolve session user from fresh database data to fix reloading display bug
           const savedSessionUser = sessionStorage.getItem('4p_session_username');
-          if (savedSessionUser) {
-            currentStaffObj = appData.users.find(u => u.name === savedSessionUser) || null;
+          let mappedSessionUser = savedSessionUser;
+          if (savedSessionUser && migrationMap[savedSessionUser]) {
+            mappedSessionUser = migrationMap[savedSessionUser];
+            sessionStorage.setItem('4p_session_username', mappedSessionUser);
+          }
+          if (mappedSessionUser) {
+            currentStaffObj = appData.users.find(u => u.name === mappedSessionUser) || null;
             if (currentStaffObj) {
               const staffName = currentStaffObj.name;
               const staffSection = currentStaffObj.section || '';
@@ -2865,7 +2918,15 @@
       // 9. Sections
       db.ref('sections').on('value', (snap) => {
         const val = snap.val();
-        appData.sections = val ? Object.values(val) : defaultSections;
+        let loadedSections = val ? Object.values(val) : defaultSections;
+        if (loadedSections.length > 2) {
+          loadedSections = loadedSections.slice(0, 2);
+          if (isFirebaseInitialized && db) {
+            db.ref('sections').set(loadedSections);
+            return;
+          }
+        }
+        appData.sections = loadedSections;
         localStorage.setItem('4p_sections', JSON.stringify(appData.sections));
         populateSectionDropdowns();
         renderSectionBadges();
@@ -2947,12 +3008,137 @@
       });
     }
 
+    function migrateLocalData() {
+      const migrationMap = {
+        "રાઉન્ડ મેનેજર 1": "RM1",
+        "રાઉન્ડ મેનેજર 2": "RM2",
+        "ચેકર 1": "CH1",
+        "ચેકર 2": "CH2"
+      };
+
+      let localUsers = JSON.parse(localStorage.getItem('4p_users'));
+      if (localUsers) {
+        let changed = false;
+        localUsers = localUsers.map(u => {
+          let updated = { ...u };
+          if (migrationMap[u.name]) {
+            updated.name = migrationMap[u.name];
+            changed = true;
+          }
+          if (u.section && u.section !== 'Section 1' && u.section !== 'Section 2') {
+            updated.section = '';
+            updated.assignedMachines = [];
+            changed = true;
+          }
+          return updated;
+        });
+        if (changed) {
+          localStorage.setItem('4p_users', JSON.stringify(localUsers));
+          appData.users = localUsers;
+        }
+      }
+
+      let localSections = JSON.parse(localStorage.getItem('4p_sections'));
+      if (localSections && localSections.length > 2) {
+        localSections = localSections.slice(0, 2);
+        localStorage.setItem('4p_sections', JSON.stringify(localSections));
+        appData.sections = localSections;
+      }
+
+      let localOps = JSON.parse(localStorage.getItem('4p_op_names'));
+      if (localOps) {
+        let originalLen = localOps.length;
+        localOps = localOps.filter(op => {
+          if (typeof op === 'object' && op.section) {
+            return op.section === 'Section 1' || op.section === 'Section 2';
+          }
+          return true;
+        });
+        if (localOps.length !== originalLen) {
+          localStorage.setItem('4p_op_names', JSON.stringify(localOps));
+          appData.operatorNames = localOps;
+        }
+      }
+    }
+
+    function ensureDatabaseReset() {
+      if (localStorage.getItem('db_reset_v9') === 'true') {
+        return;
+      }
+      
+      console.log("Wiping and resetting database data to default configurations...");
+
+      const resetDB = () => {
+        db.ref('/').remove()
+          .then(() => {
+            db.ref('sections').set(defaultSections);
+            db.ref('companies').set(defaultCompanies);
+            db.ref('passwords').set(defaultPasswords);
+            db.ref('shiftTiming').set({ dayStart:'08:00', dayEnd:'20:00', nightStart:'20:00', nightEnd:'08:00' });
+            
+            defaultUsers.forEach(u => {
+              db.ref('users/' + u.name.replace(/[\.\#\$\/\[\]]/g, '_')).set(u);
+            });
+            defaultMachines.forEach(m => {
+              db.ref('machines/' + m.machineNo).set(m);
+            });
+            
+            let opNamesMap = {};
+            defaultOpNames.forEach(op => {
+              opNamesMap[op.name] = op;
+            });
+            db.ref('operatorNames').set(opNamesMap);
+            
+            const fbConfig = localStorage.getItem('4p_firebase_config');
+            localStorage.clear();
+            if (fbConfig) {
+              localStorage.setItem('4p_firebase_config', fbConfig);
+            }
+
+            localStorage.setItem('db_reset_v9', 'true');
+            console.log("Database reset successfully.");
+            window.location.reload();
+          })
+          .catch(err => {
+            console.error("Failed to reset firebase database:", err);
+          });
+      };
+
+      if (isFirebaseInitialized && db) {
+        resetDB();
+      } else {
+        const fbConfig = localStorage.getItem('4p_firebase_config');
+        localStorage.clear();
+        if (fbConfig) {
+          localStorage.setItem('4p_firebase_config', fbConfig);
+        }
+        
+        appData.machines = defaultMachines;
+        appData.users = defaultUsers;
+        appData.sections = defaultSections;
+        appData.operatorNames = defaultOpNames;
+        appData.companies = defaultCompanies;
+        appData.machineChecks = [];
+        appData.mistakes = [];
+        appData.shapes = [];
+        appData.performance = [];
+        appData.trash = [];
+        saveData();
+        
+        localStorage.setItem('db_reset_v9', 'true');
+        console.log("Local database reset successfully.");
+        window.location.reload();
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      migrateLocalData();
       startLiveClock();
       enableDragAndWheelScroll(document.getElementById('topSectionSelectorBar'));
       enableDragAndWheelScroll(document.getElementById('mainTabsHeader'));
       renderSyncStatusBadge();
       initFirebase();
+      ensureDatabaseReset();
 
       const todayStr = new Date().toISOString().split('T')[0];
       const rptDateEl = document.getElementById('rptShiftDatePicker');
@@ -3097,10 +3283,9 @@
       else { appData.users.push(userObj); }
       if (isFirebaseInitialized && db) {
         db.ref('users/' + userObj.name.replace(/[\.\#\$\/\[\]]/g, '_')).set(userObj);
-      } else {
-        saveData(); populateDropdowns(); handleManagerSelectChange();
-        renderStaffTable(); renderStaffPasswordMasterTable();
       }
+      saveData(); populateDropdowns(); handleManagerSelectChange();
+      renderStaffTable(); renderStaffPasswordMasterTable();
       document.getElementById('newMgrNameInput').value = '';
       document.getElementById('newMgrPassInput').value = '123';
       document.querySelectorAll('.mgr-assign-chk').forEach(cb => cb.checked = false);
@@ -3119,10 +3304,9 @@
       else { appData.users.push(userObj); }
       if (isFirebaseInitialized && db) {
         db.ref('users/' + userObj.name.replace(/[\.\#\$\/\[\]]/g, '_')).set(userObj);
-      } else {
-        saveData(); populateDropdowns(); handleManagerSelectChange();
-        renderStaffTable(); renderStaffPasswordMasterTable();
       }
+      saveData(); populateDropdowns(); handleManagerSelectChange();
+      renderStaffTable(); renderStaffPasswordMasterTable();
       document.getElementById('newChkNameInput').value = '';
       document.getElementById('newChkPassInput').value = '123';
       document.querySelectorAll('.chk-assign-chk').forEach(cb => cb.checked = false);
@@ -3325,9 +3509,8 @@ function sanitizeOperatorNames() {
         appData.operatorNames.push(newOp);
         if (isFirebaseInitialized && db) {
           db.ref('operatorNames').set(appData.operatorNames);
-        } else {
-          saveData();
         }
+        saveData();
         renderGlobalDatalists();
       }
     }
@@ -3425,12 +3608,11 @@ function sanitizeOperatorNames() {
         appData.operatorNames = appData.operatorNames.filter(op => op.name !== name);
         if (isFirebaseInitialized && db) {
           db.ref('operatorNames').set(appData.operatorNames);
-        } else {
-          saveData();
-          renderGlobalDatalists();
-          if (roleContext === 'admin') renderOperatorBadgesAdmin();
-          else renderOperatorBadgesManager();
         }
+        saveData();
+        renderGlobalDatalists();
+        if (roleContext === 'admin') renderOperatorBadgesAdmin();
+        else renderOperatorBadgesManager();
       }
     }
 
@@ -3471,9 +3653,8 @@ function sanitizeOperatorNames() {
         appData.cuttingNumbers = newCuttingNos;
         if (isFirebaseInitialized && db) {
           db.ref('cuttingNumbers').set(appData.cuttingNumbers);
-        } else {
-          saveData();
         }
+        saveData();
         renderGlobalDatalists();
       }
     }
@@ -3485,9 +3666,8 @@ function sanitizeOperatorNames() {
         appData.cuttingNumbers.push(cleanNo);
         if (isFirebaseInitialized && db) {
           db.ref('cuttingNumbers').set(appData.cuttingNumbers);
-        } else {
-          saveData();
         }
+        saveData();
         renderGlobalDatalists();
       }
     }
@@ -3602,7 +3782,7 @@ function startVoiceTyping(targetFieldId) {
 
         if (!isValid && (entered === passwords[selectedTargetRole] || entered === '123')) {
           isValid = true;
-          currentStaffObj = { name: selectedTargetRole === 'manager' ? 'રાઉન્ડ મેનેજર 1' : 'ચેકર 1', role: selectedTargetRole, section: 'Section 1' };
+          currentStaffObj = { name: selectedTargetRole === 'manager' ? 'RM1' : 'CH1', role: selectedTargetRole, section: 'Section 1' };
         }
       }
 
@@ -3628,7 +3808,7 @@ function startVoiceTyping(targetFieldId) {
         activeDashboardCompany = 'ALL';
       }
 
-      const staffName = currentStaffObj ? currentStaffObj.name : (roleKey === 'manager' ? 'રાઉન્ડ મેનેજર 1' : roleKey === 'checker' ? 'ચેકર 1' : 'ડિપાર્ટમેન્ટ હેડ');
+      const staffName = currentStaffObj ? currentStaffObj.name : (roleKey === 'manager' ? 'RM1' : roleKey === 'checker' ? 'CH1' : 'ડિપાર્ટમેન્ટ હેડ');
       const staffSection = currentStaffObj && currentStaffObj.section ? currentStaffObj.section : ((roleKey === 'manager' || roleKey === 'checker') ? 'Section 1' : '');
       
       const badgeText = staffSection ? `${staffName} - ${staffSection}` : staffName;
@@ -3901,9 +4081,8 @@ function startVoiceTyping(targetFieldId) {
       if (uniqueMcs.length > 0) return uniqueMcs;
 
       const idxMap = {
-        'Section 1': ["4P-001", "4P-002", "4P-003"],
-        'Section 2': ["4P-004", "4P-005", "4P-006"],
-        'Section 3': ["4P-007", "4P-008", "4P-009"]
+        'Section 1': ["4P-1", "4P-2", "4P-3", "4P-4", "4P-5"],
+        'Section 2': ["STPL1", "STPL2", "STPL3", "STPL4", "STPL5"]
       };
 
       return idxMap[sectionName] || getMachineListNames();
@@ -4250,9 +4429,8 @@ function startVoiceTyping(targetFieldId) {
             else if (type === 'Performance') path = 'performance/' + id;
             db.ref(path).remove();
             db.ref('trash/' + deleted.id).set(deleted);
-          } else {
-            saveData();
           }
+          saveData();
           closeLogDetailModal();
           alert("✅ રેકોર્ડ ટ્રેશમાં મૂકાયો! (માસ્ટર્સ > Recent Trash માં જુઓ)");
           initSession(currentRole);
@@ -4315,9 +4493,8 @@ function startVoiceTyping(targetFieldId) {
           } else if (type === 'Performance') {
             db.ref('performance/' + id).set(record);
           }
-        } else {
-          saveData();
         }
+        saveData();
         closeLogDetailModal();
         alert("✅ રેકોર્ડ સફળતાપૂર્વક અપડેટ થયો!");
         initSession(currentRole);
@@ -4530,14 +4707,13 @@ function startVoiceTyping(targetFieldId) {
         timestamp: new Date().toLocaleString()
       };
 
+      appData.machineChecks.unshift(record);
       if (isFirebaseInitialized && db) {
         db.ref('machineChecks/' + record.id).set(record);
-      } else {
-        appData.machineChecks.unshift(record);
+      }
       saveData();
       renderMachineChecksTable();
       renderMyMachinesCheckTracker();
-      }
       alert(`✅ મશીન ${selectedMachine} નું ચેકિંગ લાઇવ ટાઈમ (${liveTimeStr}) પર સબમિટ થયું!`);
       e.target.reset();
       handleManagerSelectChange();
@@ -4572,14 +4748,13 @@ function startVoiceTyping(targetFieldId) {
         timestamp: new Date().toLocaleString()
       };
 
+      appData.mistakes.unshift(record);
       if (isFirebaseInitialized && db) {
         db.ref('mistakes/' + record.id).set(record);
-      } else {
-        appData.mistakes.unshift(record);
+      }
       saveData();
       renderMistakesTable();
       renderCheckerHistoryLogs();
-      }
       alert(`✅ 4P ચેકિંગ મિસ્ટેક ફોર્મ સબમિટ થયું!`);
       e.target.reset();
     }
@@ -4615,14 +4790,13 @@ function startVoiceTyping(targetFieldId) {
         timestamp: new Date().toLocaleString()
       };
 
+      appData.shapes.unshift(record);
       if (isFirebaseInitialized && db) {
         db.ref('shapes/' + record.id).set(record);
-      } else {
-        appData.shapes.unshift(record);
+      }
       saveData();
       renderOpenShapeIssuesQueue();
       renderShapeRecordsTable();
-      }
       alert(isShapeOk ? '✅ શેપ ચેકિંગ સબમિટ થયું (OK)!' : '⚠️ શેપ પ્રોબ્લેમ નોંધાયો (Status: Open)!');
       e.target.reset();
     }
@@ -4681,7 +4855,7 @@ function startVoiceTyping(targetFieldId) {
       const record = appData.shapes.find(s => s.id === recordId);
       if (!record) return;
 
-      const rmName = currentStaffObj ? currentStaffObj.name : 'રાઉન્ડ મેનેજર 1';
+      const rmName = currentStaffObj ? currentStaffObj.name : 'RM1';
 
       document.getElementById('mdlShapeRecordId').value = record.id;
       document.getElementById('mdlShapeMachine').innerText = getMachineMetaLabel(record.machineNo);
@@ -4715,12 +4889,11 @@ function startVoiceTyping(targetFieldId) {
 
         if (isFirebaseInitialized && db) {
           db.ref('shapes/' + record.id).set(record);
-        } else {
-          saveData();
+        }
+        saveData();
         closeResolutionModal();
         renderOpenShapeIssuesQueue();
         renderShapeRecordsTable();
-        }
         alert(`✅ શેપ પ્રોબ્લેમ સોલ્વ કન્ફર્મ થયો!`);
       }
     }
@@ -4747,13 +4920,12 @@ function startVoiceTyping(targetFieldId) {
         timestamp: new Date().toLocaleString()
       };
 
+      appData.performance.unshift(record);
       if (isFirebaseInitialized && db) {
         db.ref('performance/' + record.id).set(record);
-      } else {
-        appData.performance.unshift(record);
+      }
       saveData();
       renderPerformanceTable();
-      }
       alert('✅ રાઉન્ડ પર્ફોમન્સ રેકોર્ડ સબમિટ થયો!');
       e.target.reset();
       const perfComp = document.getElementById('perfComplainant');
@@ -5325,11 +5497,10 @@ function startVoiceTyping(targetFieldId) {
         appData.companies.push(val);
         if (isFirebaseInitialized && db) {
           db.ref('companies').set(appData.companies);
-        } else {
-          saveData();
-          populateCompanyDropdowns();
-          renderCompanyBadges();
         }
+        saveData();
+        populateCompanyDropdowns();
+        renderCompanyBadges();
         document.getElementById('newCompanyNameInput').value = '';
         alert(`✅ નવી કંપની '${val}' ઉમેરાઈ!`);
       }
@@ -5341,11 +5512,10 @@ function startVoiceTyping(targetFieldId) {
         appData.companies = appData.companies.filter(comp => comp !== c);
         if (isFirebaseInitialized && db) {
           db.ref('companies').set(appData.companies);
-        } else {
-          saveData();
-          populateCompanyDropdowns();
-          renderCompanyBadges();
         }
+        saveData();
+        populateCompanyDropdowns();
+        renderCompanyBadges();
       }
     }
 
@@ -5390,15 +5560,14 @@ function startVoiceTyping(targetFieldId) {
         appData.sections.push(val);
         if (isFirebaseInitialized && db) {
           db.ref('sections').set(appData.sections);
-        } else {
-          saveData();
-          populateSectionDropdowns();
-          renderSectionBadges();
-          renderDeptHomePortal();
-          renderTopSectionBarForRole();
-          updateCurrentAssignmentsFromStaff();
-          renderSectionAssignmentManager();
         }
+        saveData();
+        populateSectionDropdowns();
+        renderSectionBadges();
+        renderDeptHomePortal();
+        renderTopSectionBarForRole();
+        updateCurrentAssignmentsFromStaff();
+        renderSectionAssignmentManager();
         document.getElementById('newSectionInput').value = '';
         alert(`✅ નવું સેક્શન '${val}' ઉમેરાયું!`);
       }
@@ -5423,15 +5592,14 @@ function startVoiceTyping(targetFieldId) {
           appData.users.forEach(u => {
             db.ref('users/' + u.name.replace(/[\.\#\$\/\[\]]/g, '_')).set(u);
           });
-        } else {
-          saveData();
-          populateSectionDropdowns();
-          renderSectionBadges();
-          renderDeptHomePortal();
-          renderTopSectionBarForRole();
-          updateCurrentAssignmentsFromStaff();
-          renderSectionAssignmentManager();
         }
+        saveData();
+        populateSectionDropdowns();
+        renderSectionBadges();
+        renderDeptHomePortal();
+        renderTopSectionBarForRole();
+        updateCurrentAssignmentsFromStaff();
+        renderSectionAssignmentManager();
       }
     }
 
@@ -5616,10 +5784,7 @@ function startVoiceTyping(targetFieldId) {
 
     let currentAssignments = {
       'Section 1': { manager: '', checker: '', machines: [] },
-      'Section 2': { manager: '', checker: '', machines: [] },
-      'Section 3': { manager: '', checker: '', machines: [] },
-      'Section 4': { manager: '', checker: '', machines: [] },
-      'Section 5': { manager: '', checker: '', machines: [] }
+      'Section 2': { manager: '', checker: '', machines: [] }
     };
 
     function updateCurrentAssignmentsFromStaff() {
