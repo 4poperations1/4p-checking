@@ -1120,7 +1120,7 @@
 
     <div class="login-container">
       <div class="login-brand">
-          <div class="login-logo"><img src="nirbhay-logo.png" alt="Nirbhay Gems" /></div>
+          <div class="login-logo"><img src="nirbhay-logo.jpg" alt="Nirbhay Gems" /></div>
         <div class="login-title">
           <h1>નિર્ભય જેમ્સ</h1>
           <p>4P ડિપાર્ટમેન્ટ સિસ્ટમ - પ્રોફાઈલ લોગઈન કરો</p>
@@ -1302,8 +1302,12 @@
     <!-- Top Navbar -->
     <nav class="navbar">
       <div class="brand">
+        <!-- Big Home Icon button visible for Dept Head only -->
+        <button class="dept-head-only" id="navHomePortalIconBtn" onclick="switchTab('dept-home')" style="background: none; border: none; font-size: 1.85rem; cursor: pointer; padding: 0.25rem; display: none; align-items: center; justify-content: center; color: var(--accent); margin-right: 0.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1.0)'" title="મુખ્ય હોમ પોર્ટલ (Home Portal)">
+          🏠
+        </button>
         <div style="display:flex; align-items:center; gap:0.65rem;">
-          <div class="brand-logo"><img src="nirbhay-logo.png" alt="Nirbhay Gems" /></div>
+          <div class="brand-logo"><img src="nirbhay-logo.jpg" alt="Nirbhay Gems" /></div>
           <div class="brand-title">
             <h1 id="navAppTitle">નિર્ભય જેમ્સ</h1>
             <p id="navSubTitle">4P ડિપાર્ટમેન્ટ સિસ્ટમ</p>
@@ -1337,7 +1341,7 @@
     </nav>
 
     <!-- Main Container -->
-    <div class="app-watermark"><img src="nirbhay-logo.png" alt="" /></div>
+    <div class="app-watermark"><img src="nirbhay-logo.jpg" alt="" /></div>
     <div class="container">
       
       <!-- TOUCH & MOUSE SCROLLABLE SECTION SELECTOR BAR ON DASHBOARD FOR 4P HEAD -->
@@ -1513,7 +1517,7 @@
 
               <div class="form-group">
                 <label style="font-size:1.05rem; color:var(--accent); font-weight:700; display:flex; align-items:center; gap:0.35rem;">૩. ઓપરેટર નામ (Operator) <span class="req">*</span></label>
-                <div style="display:flex; gap:0.35rem; align-items:center; width:100%;"><input type="text" id="mcOpName" list="operatorDatalist" required placeholder="ઓપરેટર નામ લખો..." style="font-size:1.1rem; min-height:50px; border-color:var(--accent); font-weight:600; text-transform: uppercase; flex:1;" /><button type="button" class="btn" style="min-height:50px; padding:0 0.85rem; font-size:1.4rem; background:var(--success); font-weight:bold; margin-top:0;" onclick="quickAddOperator('mcOpName')">+</button></div>
+                <div style="display:flex; gap:0.35rem; align-items:center; width:100%;"><input type="text" id="mcOpName" list="operatorDatalist" required placeholder="ઓપરેટર નામ લખો..." style="font-size:1.1rem; min-height:50px; border-color:var(--accent); font-weight:600; text-transform: uppercase; flex:1;" /><button type="button" class="btn" style="min-height:50px; padding:0 0.85rem; font-size:1.4rem; background:var(--success); font-weight:bold; margin-top:0; width:50px !important; flex-shrink:0;" onclick="quickAddOperator('mcOpName')">+</button></div>
               </div>
             </div>
 
@@ -1571,7 +1575,13 @@
               <input type="text" id="newOperatorNameInputManager" placeholder="ઓપરેટર નામ (દા.ત. SANJAY)" style="flex:1; min-width:180px; text-transform: uppercase;" onkeypress="handleEnterKey(event, addOperatorMasterManager)" />
               <button class="btn" style="background:var(--success);" onclick="addOperatorMasterManager()">+ ઓપરેટર ઉમેરો</button>
             </div>
-            <h3 style="font-size: 0.85rem; margin-bottom: 0.65rem; color: var(--text-secondary);">સેક્શન ઓપરેટરો:</h3>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.65rem; flex-wrap: wrap; gap: 0.5rem;">
+              <h3 style="font-size: 0.85rem; margin: 0; color: var(--text-secondary);">સેક્શન ઓપરેટરો:</h3>
+              <label style="font-size: 0.82rem; color: var(--accent); cursor: pointer; display: flex; align-items: center; gap: 0.25rem; font-weight: 600; margin-bottom: 0;">
+                <input type="checkbox" id="chkShowAllOpsManager" onchange="renderOperatorBadgesManager()" style="width: auto; height: auto;" />
+                તમામ ઓપરેટરો જુઓ (View All)
+              </label>
+            </div>
             <div id="operatorsListBadgesManager" style="display:flex; gap:0.5rem; flex-wrap:wrap;"></div>
           </div>
         </div>
@@ -1660,7 +1670,7 @@
 
               <div class="form-group">
                 <label>ઓપરેટર નામ <span class="req">*</span></label>
-                <div style="display:flex; gap:0.35rem; align-items:center; width:100%;"><input type="text" id="shpOpName" list="operatorDatalist" required placeholder="ઓપરેટર નામ" style="text-transform: uppercase; flex:1;" /><button type="button" class="btn" style="min-height:38px; padding:0 0.75rem; font-size:1.2rem; background:var(--success); font-weight:bold; margin-top:0;" onclick="quickAddOperator('shpOpName')">+</button></div>
+                <div style="display:flex; gap:0.35rem; align-items:center; width:100%;"><input type="text" id="shpOpName" list="operatorDatalist" required placeholder="ઓપરેટર નામ" style="text-transform: uppercase; flex:1;" /><button type="button" class="btn" style="min-height:38px; padding:0 0.75rem; font-size:1.2rem; background:var(--success); font-weight:bold; margin-top:0; width:44px !important; flex-shrink:0;" onclick="quickAddOperator('shpOpName')">+</button></div>
               </div>
 
               <div class="form-group">
@@ -1765,7 +1775,7 @@
 
               <div class="form-group">
                 <label>ઓપરેટર નામ <span class="req">*</span></label>
-                <div style="display:flex; gap:0.35rem; align-items:center; width:100%;"><input type="text" id="chkOpName" list="operatorDatalist" required placeholder="દા.ત. મહેશભાઈ / Mahesh" style="text-transform: uppercase; flex:1;" /><button type="button" class="btn" style="min-height:38px; padding:0 0.75rem; font-size:1.2rem; background:var(--success); font-weight:bold; margin-top:0;" onclick="quickAddOperator('chkOpName')">+</button></div>
+                <div style="display:flex; gap:0.35rem; align-items:center; width:100%;"><input type="text" id="chkOpName" list="operatorDatalist" required placeholder="દા.ત. મહેશભાઈ / Mahesh" style="text-transform: uppercase; flex:1;" /><button type="button" class="btn" style="min-height:38px; padding:0 0.75rem; font-size:1.2rem; background:var(--success); font-weight:bold; margin-top:0; width:44px !important; flex-shrink:0;" onclick="quickAddOperator('chkOpName')">+</button></div>
               </div>
 
               <div class="form-group">
@@ -1930,7 +1940,7 @@
 
               <div class="form-group">
                 <label>ઓપરેટર નામ <span class="req">*</span></label>
-                <div style="display:flex; gap:0.35rem; align-items:center; width:100%;"><input type="text" id="perfOpName" list="operatorDatalist" required placeholder="ઓપરેટર નામ" style="text-transform: uppercase; flex:1;" /><button type="button" class="btn" style="min-height:38px; padding:0 0.75rem; font-size:1.2rem; background:var(--success); font-weight:bold; margin-top:0;" onclick="quickAddOperator('perfOpName')">+</button></div>
+                <div style="display:flex; gap:0.35rem; align-items:center; width:100%;"><input type="text" id="perfOpName" list="operatorDatalist" required placeholder="ઓપરેટર નામ" style="text-transform: uppercase; flex:1;" /><button type="button" class="btn" style="min-height:38px; padding:0 0.75rem; font-size:1.2rem; background:var(--success); font-weight:bold; margin-top:0; width:44px !important; flex-shrink:0;" onclick="quickAddOperator('perfOpName')">+</button></div>
               </div>
 
               <div class="form-group">
@@ -2210,7 +2220,7 @@
       <div id="tab-master-data" class="tab-panel">
         
         <!-- 1. DEDICATED FIREBASE ACCOUNT & CLOUD BACKUP SETTINGS CARD (LOCKED BY DEFAULT) -->
-        <div class="glass-card collapsible" id="firebaseCard" style="border: 1px solid #f97316; background: linear-gradient(135deg, rgba(249, 115, 22, 0.03) 0%, rgba(249, 115, 22, 0.08) 100%);">
+        <div class="glass-card collapsible collapsed" id="firebaseCard" style="border: 1px solid #f97316; background: linear-gradient(135deg, rgba(249, 115, 22, 0.03) 0%, rgba(249, 115, 22, 0.08) 100%);">
           <div class="card-header" style="border-bottom-color: rgba(249,115,22,0.2); display:flex; align-items:center; gap:0.5rem;">
             <h2 style="color: #f97316; display:flex; align-items:center; gap:0.5rem; flex:1; margin:0; cursor:pointer;" onclick="unlockFirebaseConfig()">
               <span>🔥 ફાયરબેઝ એકાઉન્ટ & કલાઉડ બેકઅપ સેટિંગ્સ</span>
@@ -2256,7 +2266,7 @@
         </div>
 
         <!-- 2. 👑 DEDICATED 4P HEAD PASSWORD MANAGEMENT CARD -->
-        <div class="glass-card collapsible" style="border: 1px solid #a855f7; background: linear-gradient(135deg, rgba(168, 85, 247, 0.03) 0%, rgba(168, 85, 247, 0.08) 100%);">
+        <div class="glass-card collapsible collapsed" style="border: 1px solid #a855f7; background: linear-gradient(135deg, rgba(168, 85, 247, 0.03) 0%, rgba(168, 85, 247, 0.08) 100%);">
           <div class="card-header" style="border-bottom-color: rgba(168,85,247,0.2); display:flex; align-items:center; gap:0.5rem;">
             <h2 style="color: #a855f7; flex:1; margin:0;">👑 4P હેડ પાસવર્ડ મેનેજમેન્ટ (Dept Head Password)</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2286,7 +2296,7 @@
         </div>
 
         <!-- 3. 🔒 STAFF PASSWORD MASTER (PER-USER, REQUIRES 4P HEAD PASSWORD) -->
-        <div class="glass-card collapsible" style="border: 1px solid #c084fc; background: linear-gradient(135deg, rgba(168, 85, 247, 0.03) 0%, rgba(168, 85, 247, 0.08) 100%);">
+        <div class="glass-card collapsible collapsed" style="border: 1px solid #c084fc; background: linear-gradient(135deg, rgba(168, 85, 247, 0.03) 0%, rgba(168, 85, 247, 0.08) 100%);">
           <div class="card-header" style="border-bottom-color: rgba(192,132,252,0.2); display:flex; align-items:center; gap:0.5rem;">
             <h2 style="color: #c084fc; flex:1; margin:0;">
               🔒 સ્ટાફ પાસવર્ડ માસ્ટર (Staff Password Master)
@@ -2316,8 +2326,8 @@
           </div>
         </div>
 
-        <!-- 4. ➕ ADD EMPLOYEE - MANAGER & CHECKER SEPARATE FORMS -->
-        <div class="glass-card collapsible" style="border: 1px solid var(--accent);">
+        <!-- 4. ➕ ADD EMPLOYEE - MANAGER & CHECKER SEPARATE FORES -->
+        <div class="glass-card collapsible collapsed" style="border: 1px solid var(--accent);">
           <div class="card-header" style="display:flex; align-items:center; gap:0.5rem;">
             <h2 style="flex:1; margin:0;">👥 એમ્પ્લોયી ઉમેરો (Add Employee)</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2403,7 +2413,7 @@
         </div>
 
         <!-- SHIFT TIMING CONFIGURATION -->
-        <div class="glass-card collapsible" style="border: 1px solid #0ea5e9; background: linear-gradient(135deg, rgba(14,165,233,0.03) 0%, rgba(14,165,233,0.08) 100%);">
+        <div class="glass-card collapsible collapsed" style="border: 1px solid #0ea5e9; background: linear-gradient(135deg, rgba(14,165,233,0.03) 0%, rgba(14,165,233,0.08) 100%);">
           <div class="card-header" style="border-bottom-color: rgba(14,165,233,0.2); display:flex; align-items:center; gap:0.5rem;">
             <h2 style="color:#0ea5e9; flex:1; margin:0;">⏰ શિફ્ટ ટાઈમિંગ સેટિંગ્સ (Shift Timing Configuration)</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2436,7 +2446,7 @@
         </div>
 
         <!-- 5. ➕ ADD MACHINE BY MANUFACTURER COMPANY -->
-        <div class="glass-card collapsible" style="border: 1px solid #f97316; background: linear-gradient(135deg, rgba(249, 115, 22, 0.03) 0%, rgba(249, 115, 22, 0.08) 100%);">
+        <div class="glass-card collapsible collapsed" style="border: 1px solid #f97316; background: linear-gradient(135deg, rgba(249, 115, 22, 0.03) 0%, rgba(249, 115, 22, 0.08) 100%);">
           <div class="card-header" style="border-bottom-color: rgba(249,115,22,0.2); display:flex; align-items:center; gap:0.5rem;">
             <h2 style="color: #f97316; flex:1; margin:0;">📟 ઉત્પાદક કંપની દ્વારા મશીન ઉમેરો (Add Machine by Company)</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2467,7 +2477,7 @@
         </div>
 
         <!-- 4. SEPARATE ASSIGNMENT TEMPLATES MASTER CARD -->
-        <div class="glass-card collapsible" style="border: 1px solid var(--warning);">
+        <div class="glass-card collapsible collapsed" style="border: 1px solid var(--warning);">
           <div class="card-header" style="display:flex; align-items:center; gap:0.5rem;">
             <h2 style="flex:1; margin:0; color:var(--warning);">📂 સેક્શન એસાઇનમેન્ટ ટેમ્પ્લેટ મેનેજર (Section Assignment Manager)</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2492,7 +2502,7 @@
           </div>
         </div>
         <!-- 5d. 🏢 COMPANIES MASTER -->
-        <div class="glass-card collapsible" style="border: 1px solid var(--accent); background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(2, 132, 199, 0.08) 100%);">
+        <div class="glass-card collapsible collapsed" style="border: 1px solid var(--accent); background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(2, 132, 199, 0.08) 100%);">
           <div class="card-header" style="border-bottom-color: rgba(2,132,199,0.2); display:flex; align-items:center; gap:0.5rem;">
             <h2 style="color: var(--accent); flex:1; margin:0;">🏢 કંપની માસ્ટર (Manage Companies)</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2511,7 +2521,7 @@
         </div>
 
         <!-- 5b. 🏢 SECTIONS MASTER -->
-        <div class="glass-card collapsible" style="border: 1px solid var(--accent); background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(2, 132, 199, 0.08) 100%);">
+        <div class="glass-card collapsible collapsed" style="border: 1px solid var(--accent); background: linear-gradient(135deg, rgba(2, 132, 199, 0.03) 0%, rgba(2, 132, 199, 0.08) 100%);">
           <div class="card-header" style="border-bottom-color: rgba(2,132,199,0.2); display:flex; align-items:center; gap:0.5rem;">
             <h2 style="color: var(--accent); flex:1; margin:0;">🏢 સેક્શન માસ્ટર (Manage Sections)</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2530,7 +2540,7 @@
         </div>
 
         <!-- 5c. 👷 OPERATORS MASTER -->
-        <div class="glass-card collapsible" style="border: 1px solid var(--success); background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, rgba(16, 185, 129, 0.08) 100%);">
+        <div class="glass-card collapsible collapsed" style="border: 1px solid var(--success); background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, rgba(16, 185, 129, 0.08) 100%);">
           <div class="card-header" style="border-bottom-color: rgba(16,185,129,0.2); display:flex; align-items:center; gap:0.5rem;">
             <h2 style="color: var(--success); flex:1; margin:0;">👷 ઓપરેટર માસ્ટર (Manage Operators)</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2550,7 +2560,7 @@
         </div>
 
         <!-- 6. MACHINE INSPECTION ITEMS MASTER -->
-        <div class="glass-card collapsible">
+        <div class="glass-card collapsible collapsed">
           <div class="card-header" style="display:flex; align-items:center; gap:0.5rem;">
             <h2 style="flex:1; margin:0;">📝 મશીન ચેકિંગ મુદ્દાઓ માસ્ટર (Inspection Items Master)</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2565,7 +2575,7 @@
         </div>
 
         <!-- Backup & Export Data -->
-        <div class="glass-card collapsible">
+        <div class="glass-card collapsible collapsed">
           <div class="card-header" style="display:flex; align-items:center; gap:0.5rem;">
             <h2 style="flex:1; margin:0;">📦 બેકઅપ & ડેટા એક્સપોર્ટ</h2>
             <span class="collapse-arrow" onclick="toggleCollapsible(this)">▼</span>
@@ -2579,7 +2589,7 @@
         </div>
 
         <!-- RECENTLY DELETED / TRASH SECTION -->
-        <div class="glass-card collapsible" style="border: 1px solid var(--warning);">
+        <div class="glass-card collapsible collapsed" style="border: 1px solid var(--warning);">
           <div class="card-header" style="display:flex; align-items:center; gap:0.5rem;">
             <h2 style="color:var(--warning); flex:1; margin:0;">🗑️ તાજેતરમાં કાઢેલ રેકોર્ડ્સ (Recently Deleted)</h2>
             <span style="font-size:0.82rem; color:var(--text-secondary);" id="trashCountBadge">0 items</span>
@@ -2940,7 +2950,13 @@
       db.ref('operatorNames').on('value', (snap) => {
         const val = snap.val();
         if (val) {
-          appData.operatorNames = val;
+          if (Array.isArray(val)) {
+            appData.operatorNames = val.filter(Boolean);
+          } else if (typeof val === 'object') {
+            appData.operatorNames = Object.values(val);
+          } else {
+            appData.operatorNames = [];
+          }
           localStorage.setItem('4p_op_names', JSON.stringify(appData.operatorNames));
           renderGlobalDatalists();
           renderOperatorBadgesAdmin();
@@ -2957,21 +2973,17 @@
         renderCompanyBadges();
       });
 
-      // 9. Operator Names
-      db.ref('operatorNames').on('value', (snap) => {
-        const val = snap.val();
-        if (val) {
-          appData.operatorNames = Object.keys(val);
-          localStorage.setItem('4p_op_names', JSON.stringify(appData.operatorNames));
-          renderGlobalDatalists();
-        }
-      });
-
       // 10. Cutting Numbers
       db.ref('cuttingNumbers').on('value', (snap) => {
         const val = snap.val();
         if (val) {
-          appData.cuttingNumbers = Object.keys(val);
+          if (Array.isArray(val)) {
+            appData.cuttingNumbers = val.filter(Boolean);
+          } else if (typeof val === 'object') {
+            appData.cuttingNumbers = Object.keys(val);
+          } else {
+            appData.cuttingNumbers = [];
+          }
           localStorage.setItem('4p_cutting_nos', JSON.stringify(appData.cuttingNumbers));
           renderGlobalDatalists();
         }
@@ -3062,7 +3074,7 @@
     }
 
     function ensureDatabaseReset() {
-      if (localStorage.getItem('db_reset_v9') === 'true') {
+      if (localStorage.getItem('db_reset_v11') === 'true') {
         return;
       }
       
@@ -3083,11 +3095,7 @@
               db.ref('machines/' + m.machineNo).set(m);
             });
             
-            let opNamesMap = {};
-            defaultOpNames.forEach(op => {
-              opNamesMap[op.name] = op;
-            });
-            db.ref('operatorNames').set(opNamesMap);
+            db.ref('operatorNames').set(defaultOpNames);
             
             const fbConfig = localStorage.getItem('4p_firebase_config');
             localStorage.clear();
@@ -3095,7 +3103,7 @@
               localStorage.setItem('4p_firebase_config', fbConfig);
             }
 
-            localStorage.setItem('db_reset_v9', 'true');
+            localStorage.setItem('db_reset_v11', 'true');
             console.log("Database reset successfully.");
             window.location.reload();
           })
@@ -3125,7 +3133,7 @@
         appData.trash = [];
         saveData();
         
-        localStorage.setItem('db_reset_v9', 'true');
+        localStorage.setItem('db_reset_v11', 'true');
         console.log("Local database reset successfully.");
         window.location.reload();
       }
@@ -3424,12 +3432,18 @@
     function renderGlobalDatalists() {
       const opDl = document.getElementById('operatorDatalist');
       if (opDl && appData.operatorNames) {
-        opDl.innerHTML = appData.operatorNames.map(name => `<option value="${name}"></option>`).join('');
+        opDl.innerHTML = appData.operatorNames.map(op => {
+          const val = (typeof op === 'object' && op && op.name) ? op.name : op;
+          return `<option value="${val}"></option>`;
+        }).join('');
       }
 
       const cutDl = document.getElementById('cuttingDatalist');
       if (cutDl && appData.cuttingNumbers) {
-        cutDl.innerHTML = appData.cuttingNumbers.map(no => `<option value="${no}"></option>`).join('');
+        cutDl.innerHTML = appData.cuttingNumbers.map(no => {
+          const val = (typeof no === 'object' && no && no.no) ? no.no : no;
+          return `<option value="${val}"></option>`;
+        }).join('');
       }
     }
 
@@ -3535,10 +3549,14 @@ function sanitizeOperatorNames() {
         mySection = currentStaffObj.section;
       }
       sanitizeOperatorNames();
-      const myOps = appData.operatorNames.filter(op => op.section === mySection);
+      
+      const showAllCheckbox = document.getElementById('chkShowAllOpsManager');
+      const showAll = showAllCheckbox ? showAllCheckbox.checked : false;
+      
+      const myOps = showAll ? appData.operatorNames : appData.operatorNames.filter(op => op.section === mySection || op.section === 'ALL');
       container.innerHTML = myOps.map(op => `
         <span class="status-badge pending" style="font-size:0.85rem; padding:0.4rem 0.8rem; cursor:pointer;" onclick="removeOperatorMaster('${op.name}', 'manager')">
-          ${op.name} ✖
+          ${op.name} ${showAll ? '(' + (op.section === 'ALL' ? 'તમામ' : op.section.replace('Section', 'સેક્શન')) + ')' : ''} ✖
         </span>
       `).join('');
     }
@@ -3562,11 +3580,10 @@ function sanitizeOperatorNames() {
       appData.operatorNames.push(newOp);
       if (isFirebaseInitialized && db) {
         db.ref('operatorNames').set(appData.operatorNames);
-      } else {
-        saveData();
-        renderGlobalDatalists();
-        renderOperatorBadgesAdmin();
       }
+      saveData();
+      renderGlobalDatalists();
+      renderOperatorBadgesAdmin();
       input.value = '';
       alert(`✅ ઓપરેટર '${name}' સેક્શન '${section.replace('Section', 'સેક્શન')}' માં ઉમેરાયો!`);
     }
@@ -3593,11 +3610,10 @@ function sanitizeOperatorNames() {
       appData.operatorNames.push(newOp);
       if (isFirebaseInitialized && db) {
         db.ref('operatorNames').set(appData.operatorNames);
-      } else {
-        saveData();
-        renderGlobalDatalists();
-        renderOperatorBadgesManager();
       }
+      saveData();
+      renderGlobalDatalists();
+      renderOperatorBadgesManager();
       input.value = '';
       alert(`✅ ઓપરેટર '${name}' સેક્શન '${mySection.replace('Section', 'સેક્શન')}' માં ઉમેરાયો!`);
     }
@@ -3746,7 +3762,8 @@ function startVoiceTyping(targetFieldId) {
         }
       } else {
         staffSelectGroup.style.display = 'none';
-        document.getElementById('hintPass').innerText = passwords.dept_head || '123';
+        const hintEl = document.getElementById('hintPass');
+        if (hintEl) hintEl.innerText = passwords.dept_head || '123';
       }
 
       document.getElementById('passwordModal').classList.add('active');
@@ -4053,13 +4070,17 @@ function startVoiceTyping(targetFieldId) {
     }
 
     function populateCompanyDropdowns() {
-      const companies = getManufacturerCompaniesList();
-      const optionsHTML = `<option value="ALL">તમામ ઉત્પાદક કંપનીઓ (All Companies)</option>` + companies.map(c => `<option value="${c}">${c}</option>`).join('');
+      const companies = appData.companies || defaultCompanies;
+      const filterOptionsHTML = `<option value="ALL">તમામ ઉત્પાદક કંપનીઓ (All Companies)</option>` + companies.map(c => `<option value="${c}">${c}</option>`).join('');
+      const selectOptionsHTML = companies.map(c => `<option value="${c}">${c}</option>`).join('');
 
       ['dashCompanyFilter', 'rptCompanyFilter'].forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.innerHTML = optionsHTML;
+        if (el) el.innerHTML = filterOptionsHTML;
       });
+
+      const newCompEl = document.getElementById('newCompanySelect');
+      if (newCompEl) newCompEl.innerHTML = selectOptionsHTML;
     }
 
     function setDashboardCompanyFilter(cName) {
